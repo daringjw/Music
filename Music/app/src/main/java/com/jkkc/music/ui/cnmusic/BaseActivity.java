@@ -1,5 +1,6 @@
 package com.jkkc.music.ui.cnmusic;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,6 +19,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //默认屏幕不能旋转
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
     }
 
 
@@ -30,10 +32,17 @@ public class BaseActivity extends AppCompatActivity {
         Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show();
     }
 
-    public void showSnackBar(View view,int resID) {
-        Snackbar.make(view,resID,Snackbar.LENGTH_SHORT).show();
+    public void showSnackBar(View view, int resID) {
+        Snackbar.make(view, resID, Snackbar.LENGTH_SHORT).show();
     }
 
+    public void startToActivity(Class activity) {
+
+        Intent intent = new Intent();
+        intent.setClass(this, activity);
+        startActivity(intent);
+
+    }
 
 
 }
